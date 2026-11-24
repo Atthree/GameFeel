@@ -109,6 +109,23 @@ Feel.FlashEnabled = false;
 Feel.TimeEffectsEnabled = false; // hit stop and slow motion
 ```
 
+## Where to use it
+
+| Game type | Moment | Juice |
+|---|---|---|
+| Action / melee | Hitting an enemy | `HitStop(0.05)` + `Shake(0.25)` + `Flash(enemy)` + damage number |
+| | Critical hit / finishing blow | Longer hit stop (0.1), `SlowMotion(0.3, 0.4)`, bigger text |
+| | Player takes damage | Red flash on the player, `Shake(0.4)` |
+| Platformer | Jump / land | `Stretch` on take-off, `Squash` + small shake on landing |
+| | Collecting a coin | `Tween.PunchScale` on the coin counter UI, "+1" floating text |
+| Shooter | Firing | `PunchPosition` backwards on the weapon (recoil), tiny shake (0.05) |
+| | Explosion | `Shake(0.8–1)`, slow motion for a moment |
+| Racing / vehicles | Crash | `Shake` scaled by impact speed, `Squash` on the car body after a jump |
+| Physics / party | Knockout, big fall | `HitStop(0.08)` + `Shake(0.6)` |
+| Any game: UI | Buttons, popups, menus | `PunchScale` on click, `Tween.Scale` from 0 with `Ease.OutBack` for popups, `Tween.Move` for sliding panels (with `SetUnscaled()` in pause menus) |
+| Any game: doors, chests, platforms | Opening, moving | `Tween.Rotate` / `Tween.Move` with `InOutQuad` instead of writing an Update loop |
+| Any game: timers | "Do X in 2 seconds" | `Tween.Delay(2f, X)` instead of a coroutine |
+
 ## Good to know
 
 - **Less is more.** Typical values: hit stop 0.03–0.08 s, shake 0.1–0.3 for normal hits and 0.6–1 for
@@ -309,6 +326,23 @@ Feel.ShakeIntensity = 0.5f;      // 0 = kapalı, 1 = normal
 Feel.FlashEnabled = false;
 Feel.TimeEffectsEnabled = false; // hit stop ve ağır çekim
 ```
+
+## Nerede kullanılır?
+
+| Oyun türü | An | Juice |
+|---|---|---|
+| Aksiyon / yakın dövüş | Düşmana vurmak | `HitStop(0.05)` + `Shake(0.25)` + `Flash(enemy)` + hasar sayısı |
+| | Kritik vuruş / son darbe | Daha uzun hit stop (0.1), `SlowMotion(0.3, 0.4)`, büyük yazı |
+| | Oyuncunun hasar alması | Oyuncuda kırmızı flash, `Shake(0.4)` |
+| Platform | Zıplama / yere inme | Kalkışta `Stretch`, inişte `Squash` + hafif sarsıntı |
+| | Altın toplama | Altın sayacı UI'ında `Tween.PunchScale`, "+1" uçuşan yazı |
+| Nişancı | Ateş etme | Silahta geriye `PunchPosition` (tepme), çok hafif sarsıntı (0.05) |
+| | Patlama | `Shake(0.8–1)`, bir anlık ağır çekim |
+| Yarış / araç | Kaza | Darbe hızına göre `Shake`, zıplamadan sonra gövdede `Squash` |
+| Fizik / party | Bayılma, büyük düşüş | `HitStop(0.08)` + `Shake(0.6)` |
+| Her oyun: UI | Butonlar, açılır pencereler, menüler | Tıklamada `PunchScale`, açılır pencerede 0'dan `Ease.OutBack` ile `Tween.Scale`, kayan paneller için `Tween.Move` (pause menüsünde `SetUnscaled()` ile) |
+| Her oyun: kapı, sandık, platform | Açılma, hareket | Update döngüsü yazmak yerine `InOutQuad` ile `Tween.Rotate` / `Tween.Move` |
+| Her oyun: zamanlayıcılar | "2 saniye sonra X'i yap" | Coroutine yerine `Tween.Delay(2f, X)` |
 
 ## Dikkat edilecekler
 
