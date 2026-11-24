@@ -1,0 +1,18 @@
+{
+    "name": "Atthree.GameFeel.Editor",
+    "rootNamespace": "Atthree.GameFeel.Editor",
+    "references": [
+        "Atthree.GameFeel"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
